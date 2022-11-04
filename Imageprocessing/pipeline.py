@@ -24,5 +24,5 @@ tokenizer = AutoTokenizer.from_pretrained(model_name)
 classifier = pipeline("sentiment-analysis", model = model, tokenizer = tokenizer)
 
 res = classifier("hello world")
-
+print("Test Pipeline")
 print(res)
