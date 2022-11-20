@@ -10,6 +10,6 @@ class StudentScreen extends StatefulWidget {
 class _StudentScreenState extends State<StudentScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Center();
   }
 }
