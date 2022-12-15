@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "982153663490",
+    "project_id": "schoolpickupnoti",
+    "storage_bucket": "schoolpickupnoti.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:982153663490:android:771680756b0daf1b41431b",
+        "android_client_info": {
+          "package_name": "com.example.flutter_front_end"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "982153663490-mudgjpvaq7onahs57vvuiiqi7r364q4e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUDvM5InRWa6z8gvNCdU_FX7Rc4dC9INc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "982153663490-mudgjpvaq7onahs57vvuiiqi7r364q4e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
