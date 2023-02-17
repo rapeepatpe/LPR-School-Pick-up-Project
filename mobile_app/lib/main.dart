@@ -1,6 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:mobile_app/src/app_route.dart';
+import 'package:mobile_app/src/bloc/app_bloc_observer.dart';
+import 'package:mobile_app/src/pages/mobile/home_page.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  var settings = await Hive.openBox('generalSettings');
+  //print(settings.get('noPutYet')); --> null
+  if (settings.get('initialize') == null) {
+    //not initialized yet
+    settings.put('initialize', false);
+  }
+  Bloc.observer = AppBlocObserver();
   runApp(const MyApp());
 }
 
@@ -10,59 +24,44 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      routes: AppRoute().getAll,
+      title: 'Smart City School Pickup',
       theme: ThemeData(
-          //primarySwatch: Colors.blue,
-          //colorSchemeSeed: ,
-          useMaterial3: true),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+        fontFamily: GoogleFonts.nunito().fontFamily,
+        colorSchemeSeed: Colors.indigo,
+        useMaterial3: true,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: const HomePage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class CustomTextStyle {
+  static TextStyle homePageSchoolName(Color? color) => TextStyle(
+        fontSize: 90,
+        color: color,
+        fontWeight: FontWeight.w900,
+        fontFamily: GoogleFonts.nunito().fontFamily,
+      );
 
-  final String title;
+  static TextStyle homePageGeneral() => const TextStyle(
+        fontSize: 35,
+        color: Colors.white,
+        fontWeight: FontWeight.w700,
+      );
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
+  static TextStyle homePageGeneralSmall() => const TextStyle(
+        fontSize: 20,
+        color: Colors.white,
+        fontWeight: FontWeight.w700,
+      );
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  static TextStyle display3() => const TextStyle(
+        fontSize: 15,
+      );
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-    );
-  }
+  static TextStyle get selector =>
+      const TextStyle(fontSize: 15, fontWeight: FontWeight.bold);
 }

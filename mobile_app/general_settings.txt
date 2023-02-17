@@ -1,0 +1,9 @@
+generalSettings:
+    - initialize : bool
+        =true ; initialized
+        =null/false ; not initialized
+    - schoolName : str
+        = "schoolName" ; school name to be displayed
+        = null ; show from KMITL
+    - schoolUrl : str
+        = "schoolUrl" ; 
