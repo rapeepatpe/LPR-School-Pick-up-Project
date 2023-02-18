@@ -5,5 +5,14 @@ generalSettings:
     - schoolName : str
         = "schoolName" ; school name to be displayed
         = null ; show from KMITL
+    !!!!!!!!!!!!!!!!!! schoolUrl, username and password need to be check if they are correct before saving to hive local database
     - schoolUrl : str
-        = "schoolUrl" ; 
+        = "schoolUrl" ; already connected to school once
+        = null ; never connected to school
+    - username : str
+        = "username" ; already logged in with username
+        = null ; never logged in with username
+    - password : str
+        = "password" ; already logged in with password
+        = null ; never logged in with password
+        

@@ -79,7 +79,23 @@ class _HomePageState extends State<HomePage> {
         ),
       );
     }
-    return Container();
+    return SafeArea(
+      child: Stack(
+        children: [
+          Text(
+            name,
+            style: CustomTextStyle.homePageSchoolName(
+                const Color.fromARGB(255, 255, 153, 0)),
+          ),
+          if (isFirstLetterVertical(name[0]))
+            Text(
+              "I",
+              style: CustomTextStyle.homePageSchoolName(
+                  const Color.fromARGB(255, 223, 63, 0)),
+            )
+        ],
+      ),
+    );
   }
 
   Widget get _homeGradient => Container(
@@ -160,14 +176,14 @@ class _HomePageState extends State<HomePage> {
   AlertDialog _showHelpAlert(BuildContext context) {
     return AlertDialog(
       title: Text("📣"),
-      content: Text(
-          "Please contact your school administrator in order to help you getting start."),
+      content: const Text(
+          "Please contact your school administrator to get the required information in order to start using this application."),
       actions: [
         TextButton(
             onPressed: () {
               Navigator.of(context).pop();
             },
-            child: Text("Dismiss")),
+            child: const Text("Dismiss")),
       ],
     );
   }
