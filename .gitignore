@@ -1,2 +1,4 @@
 
 mobile_app/firebase-win.exe
+mobile_app/ios/firebase_app_id_file.json
+mobile_app/lib/firebase_options.dart
