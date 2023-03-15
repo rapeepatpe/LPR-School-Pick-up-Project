@@ -2,3 +2,5 @@
 mobile_app/firebase-win.exe
 mobile_app/ios/firebase_app_id_file.json
 mobile_app/lib/firebase_options.dart
+mobile_app/android/app/google-services.json
+mobile_app/ios/Runner/GoogleService-Info.plist
