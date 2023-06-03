@@ -34,7 +34,7 @@ class _StudentScreenState extends State<StudentScreen> {
               children: const [
                 Text(
                   "เวลาที่จะถึงโดยประมาณ",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, fontFamily: ),
+                  //style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, fontFamily: ),
                 )
               ],
             ),
